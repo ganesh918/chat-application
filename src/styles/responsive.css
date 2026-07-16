@@ -1,0 +1,238 @@
+/* ===========================
+   Large Laptop (1200px)
+=========================== */
+
+@media (max-width: 1200px) {
+
+.dashboard-content{
+width:320px;
+}
+
+.sidebar{
+width:220px;
+}
+
+.chat-header h3{
+font-size:17px;
+}
+
+}
+
+/* ===========================
+   Tablet (992px)
+=========================== */
+
+@media (max-width: 992px){
+
+.sidebar{
+width:90px;
+padding:15px 10px;
+}
+
+.sidebar h2{
+font-size:18px;
+text-align:center;
+}
+
+.sidebar span{
+display:none;
+}
+
+.sidebar li{
+justify-content:center;
+}
+
+.dashboard-content{
+width:280px;
+}
+
+.chat-header{
+padding:15px;
+}
+
+.chat-avatar{
+width:45px;
+height:45px;
+}
+
+.chat-input input{
+font-size:14px;
+}
+
+}
+
+/* ===========================
+   Mobile (768px)
+=========================== */
+
+@media (max-width:768px){
+
+.dashboard-container{
+flex-direction:column;
+height:100vh;
+}
+
+.sidebar{
+width:100%;
+height:70px;
+display:flex;
+flex-direction:row;
+justify-content:space-around;
+align-items:center;
+padding:0 15px;
+}
+
+.sidebar h2{
+display:none;
+}
+
+.sidebar ul{
+display:flex;
+width:100%;
+justify-content:space-around;
+padding:0;
+margin:0;
+}
+
+.sidebar li{
+padding:10px;
+}
+
+.sidebar span{
+display:none;
+}
+
+.dashboard-content{
+width:100%;
+height:45%;
+padding:10px;
+}
+
+.chat-window{
+width:100%;
+height:55%;
+}
+
+.search-bar{
+margin-bottom:10px;
+}
+
+.conversation-card{
+padding:12px;
+}
+
+.chat-header{
+padding:10px 15px;
+}
+
+.chat-header h3{
+font-size:16px;
+}
+
+.chat-avatar{
+width:42px;
+height:42px;
+}
+
+.chat-messages{
+padding:12px;
+}
+
+.message{
+max-width:80%;
+}
+
+.chat-input{
+padding:10px;
+}
+
+.chat-input button{
+width:40px;
+height:40px;
+}
+
+}
+
+/* ===========================
+   Small Mobile (480px)
+=========================== */
+
+@media (max-width:480px){
+
+body{
+font-size:14px;
+}
+
+.dashboard-content{
+padding:8px;
+}
+
+.conversation-card{
+padding:10px;
+}
+
+.conversation-card img{
+width:45px;
+height:45px;
+}
+
+.conversation-info h4{
+font-size:14px;
+}
+
+.conversation-info p{
+font-size:12px;
+}
+
+.chat-header{
+padding:10px;
+}
+
+.chat-avatar{
+width:38px;
+height:38px;
+}
+
+.chat-header h3{
+font-size:15px;
+}
+
+.chat-header small{
+font-size:12px;
+}
+
+.chat-actions button{
+width:34px;
+height:34px;
+font-size:14px;
+}
+
+.chat-input input{
+font-size:13px;
+padding:10px;
+}
+
+.chat-input button{
+width:36px;
+height:36px;
+}
+
+.message{
+font-size:13px;
+max-width:90%;
+}
+
+.profile-card,
+.settings-container,
+.contact-profile-card{
+width:95%;
+padding:20px;
+}
+
+.profile-image,
+.contact-profile-image{
+width:120px;
+height:120px;
+}
+
+}

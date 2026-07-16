@@ -1,0 +1,133 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f3f4f6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    cursor:pointer;
+    border:none;
+}
+
+input{
+    outline:none;
+}
+
+img{
+    max-width:100%;
+}
+
+::-webkit-scrollbar{
+    width:6px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#999;
+    border-radius:10px;
+}
+.btn{
+padding:12px 22px;
+border:none;
+background:#25D366;
+color:white;
+border-radius:8px;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn:hover{
+background:#128C7E;
+}
+
+.common-input{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:8px;
+}
+
+.loader-container{
+display:flex;
+justify-content:center;
+padding:40px;
+}
+
+.loader{
+width:45px;
+height:45px;
+border:5px solid #ddd;
+border-top:5px solid #25D366;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+.skeleton-card{
+display:flex;
+padding:15px;
+gap:15px;
+margin:20px;
+}
+
+.skeleton-avatar{
+width:55px;
+height:55px;
+border-radius:50%;
+background:#ddd;
+}
+
+.skeleton-text{
+flex:1;
+}
+
+.line{
+height:12px;
+background:#ddd;
+margin-bottom:10px;
+}
+
+.short{
+width:60%;
+}
+
+.empty-state,
+.error-state{
+padding:80px;
+text-align:center;
+color:#777;
+}
+.back-btn{
+display:flex;
+align-items:center;
+gap:10px;
+margin:20px;
+padding:10px 18px;
+background:#25D366;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+transition:.3s;
+}
+
+.back-btn:hover{
+background:#128C7E;
+}
