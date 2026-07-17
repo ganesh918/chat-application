@@ -16,7 +16,7 @@ background:#f4f6f9;
 .sidebar{
 width:260px;
 background:linear-gradient(180deg,#128C7E,#0E6F64);
-color:white;
+color:#fff;
 display:flex;
 flex-direction:column;
 padding:20px 15px;
@@ -36,8 +36,8 @@ gap:10px;
 margin-bottom:40px;
 font-size:24px;
 font-weight:700;
-color:white;
 letter-spacing:.5px;
+color:#fff;
 }
 
 .app-logo svg{
@@ -65,13 +65,9 @@ gap:8px;
 .sidebar li{
 border-radius:14px;
 overflow:hidden;
-transition:all .3s ease;
 cursor:pointer;
+transition:.3s;
 }
-
-/* =========================================
-   SIDEBAR LINK
-========================================= */
 
 .sidebar-link{
 display:flex;
@@ -83,7 +79,7 @@ color:white;
 font-size:16px;
 font-weight:500;
 border-radius:14px;
-transition:all .3s ease;
+transition:.3s;
 }
 
 .sidebar-link svg{
@@ -91,9 +87,7 @@ font-size:20px;
 transition:.3s;
 }
 
-/* =========================================
-   HOVER EFFECT
-========================================= */
+/* Hover */
 
 .sidebar li:hover{
 transform:translateX(8px);
@@ -105,12 +99,10 @@ box-shadow:0 8px 20px rgba(37,211,102,.35);
 }
 
 .sidebar li:hover svg{
-transform:rotate(-10deg) scale(1.2);
+transform:rotate(-10deg) scale(1.15);
 }
 
-/* =========================================
-   ACTIVE EFFECT
-========================================= */
+/* Active */
 
 .sidebar-link.active{
 background:linear-gradient(135deg,#25D366,#1EBE5D);
@@ -128,20 +120,13 @@ transform:scale(1.15);
 .dashboard-content{
 width:360px;
 background:#f8f9fb;
-padding:20px;
-overflow-y:auto;
 border-right:1px solid #ddd;
+display:flex;
+flex-direction:column;
+overflow:hidden;
 transition:.3s;
 }
 
-.dashboard-content::-webkit-scrollbar{
-width:6px;
-}
-
-.dashboard-content::-webkit-scrollbar-thumb{
-background:#c2c2c2;
-border-radius:20px;
-}
 /* =========================================
    SEARCH BAR
 ========================================= */
@@ -150,11 +135,16 @@ border-radius:20px;
 display:flex;
 align-items:center;
 background:white;
-padding:12px 16px;
+margin:18px;
+margin-bottom:10px;
+padding:14px 16px;
 border-radius:14px;
-margin-bottom:22px;
 box-shadow:0 4px 12px rgba(0,0,0,.08);
-transition:all .3s ease;
+flex-shrink:0;
+position:sticky;
+top:0;
+z-index:50;
+transition:.3s;
 }
 
 .search-bar:hover{
@@ -182,16 +172,39 @@ color:#999;
 }
 
 /* =========================================
+   CONTACTS LIST
+========================================= */
+
+.conversation-list{
+flex:1;
+overflow-y:auto;
+overflow-x:hidden;
+padding:0 18px 18px;
+}
+
+.conversation-list::-webkit-scrollbar{
+width:6px;
+}
+
+.conversation-list::-webkit-scrollbar-thumb{
+background:#c7c7c7;
+border-radius:20px;
+}
+
+.conversation-list::-webkit-scrollbar-track{
+background:transparent;
+}
+/* =========================================
    CONVERSATION CARD
 ========================================= */
 
 .conversation-card{
 display:flex;
-justify-content:space-between;
 align-items:center;
-background:white;
+justify-content:space-between;
+background:#ffffff;
 padding:15px;
-margin-bottom:14px;
+margin-bottom:12px;
 border-radius:16px;
 cursor:pointer;
 transition:all .3s ease;
@@ -199,9 +212,9 @@ box-shadow:0 3px 10px rgba(0,0,0,.05);
 }
 
 .conversation-card:hover{
-transform:translateY(-4px);
-box-shadow:0 10px 24px rgba(0,0,0,.12);
+transform:translateY(-3px);
 background:#fafafa;
+box-shadow:0 10px 24px rgba(0,0,0,.12);
 }
 
 /* =========================================
@@ -209,7 +222,7 @@ background:#fafafa;
 ========================================= */
 
 .active-chat{
-background:linear-gradient(135deg,#d9fdd3,#f2fff3);
+background:linear-gradient(135deg,#d9fdd3,#f3fff5);
 border-left:5px solid #25D366;
 box-shadow:0 8px 20px rgba(37,211,102,.20);
 }
@@ -232,12 +245,13 @@ transform:scale(1.08);
 }
 
 /* =========================================
-   CONVERSATION INFO
+   USER INFO
 ========================================= */
 
 .conversation-info{
 flex:1;
 margin-left:15px;
+overflow:hidden;
 }
 
 .conversation-info h4{
@@ -245,6 +259,9 @@ margin:0;
 font-size:17px;
 font-weight:600;
 color:#222;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
 }
 
 .conversation-info p{
@@ -257,14 +274,16 @@ text-overflow:ellipsis;
 }
 
 /* =========================================
-   RIGHT SECTION
+   RIGHT SIDE
 ========================================= */
 
 .conversation-right{
 display:flex;
 flex-direction:column;
 align-items:center;
+justify-content:center;
 gap:8px;
+margin-left:12px;
 }
 
 .conversation-right small{
@@ -273,21 +292,21 @@ color:#888;
 }
 
 /* =========================================
-   BADGE
+   UNREAD BADGE
 ========================================= */
 
 .badge{
 min-width:22px;
 height:22px;
+padding:0 7px;
 display:flex;
 justify-content:center;
 align-items:center;
-padding:0 7px;
 background:#25D366;
-color:white;
-border-radius:50px;
+color:#fff;
+border-radius:999px;
 font-size:11px;
-font-weight:600;
+font-weight:700;
 box-shadow:0 4px 10px rgba(37,211,102,.35);
 }
 
@@ -305,7 +324,7 @@ display:inline-block;
 
 .online{
 background:#25D366;
-box-shadow:0 0 10px rgba(37,211,102,.8);
+box-shadow:0 0 10px rgba(37,211,102,.7);
 animation:pulse 1.8s infinite;
 }
 
@@ -314,7 +333,7 @@ background:#9e9e9e;
 }
 
 /* =========================================
-   ONLINE ANIMATION
+   PULSE ANIMATION
 ========================================= */
 
 @keyframes pulse{
@@ -335,6 +354,22 @@ opacity:.8;
 }
 
 }
+
+/* =========================================
+   SMOOTH TRANSITIONS
+========================================= */
+
+.sidebar,
+.sidebar-link,
+.dashboard-content,
+.search-bar,
+.conversation-card,
+.conversation-card img,
+.badge,
+.online,
+.offline{
+transition:all .3s ease;
+}
 /* =========================================
    DARK MODE
 ========================================= */
@@ -344,12 +379,12 @@ background:#0f1115;
 }
 
 body.dark .sidebar{
-background:linear-gradient(180deg,#1a1a1a,#0d0d0d);
+background:linear-gradient(180deg,#1b1b1b,#101010);
 box-shadow:4px 0 20px rgba(0,0,0,.45);
 }
 
 body.dark .app-logo{
-color:#ffffff;
+color:#fff;
 }
 
 body.dark .app-logo svg{
@@ -375,11 +410,15 @@ color:#d0d0d0;
 }
 
 body.dark .search-bar input{
-color:white;
+color:#fff;
 }
 
 body.dark .search-bar input::placeholder{
 color:#9d9d9d;
+}
+
+body.dark .conversation-list::-webkit-scrollbar-thumb{
+background:#555;
 }
 
 body.dark .conversation-card{
@@ -391,7 +430,7 @@ background:#2d2d2d;
 }
 
 body.dark .conversation-info h4{
-color:white;
+color:#fff;
 }
 
 body.dark .conversation-info p{
@@ -409,29 +448,14 @@ border-left:5px solid #25D366;
 
 body.dark .badge{
 background:#25D366;
-color:white;
-}
-
-/* =========================================
-   SMOOTH TRANSITIONS
-========================================= */
-
-.sidebar,
-.dashboard-content,
-.search-bar,
-.conversation-card,
-.sidebar-link,
-.badge,
-.online,
-.offline{
-transition:all .3s ease;
+color:#fff;
 }
 
 /* =========================================
    TABLET
 ========================================= */
 
-@media(max-width:992px){
+@media (max-width:992px){
 
 .sidebar{
 width:220px;
@@ -461,7 +485,7 @@ height:52px;
    MOBILE
 ========================================= */
 
-@media(max-width:768px){
+@media (max-width:768px){
 
 .dashboard-container{
 flex-direction:column;
@@ -482,13 +506,8 @@ font-size:20px;
 }
 
 .sidebar ul{
-display:flex;
 flex-direction:row;
 gap:10px;
-}
-
-.sidebar li{
-margin:0;
 }
 
 .sidebar li:hover{
@@ -507,11 +526,15 @@ display:none;
 .dashboard-content{
 width:100%;
 height:calc(100vh - 70px);
-padding:15px;
 }
 
 .search-bar{
-margin-bottom:15px;
+margin:15px;
+margin-bottom:10px;
+}
+
+.conversation-list{
+padding:0 15px 15px;
 }
 
 }
@@ -520,14 +543,14 @@ margin-bottom:15px;
    SMALL MOBILE
 ========================================= */
 
-@media(max-width:480px){
+@media (max-width:480px){
 
 .dashboard-content{
-padding:12px;
+width:100%;
 }
 
 .search-bar{
-padding:10px 12px;
+padding:12px;
 }
 
 .search-bar input{
@@ -558,9 +581,9 @@ font-size:13px;
 }
 
 .badge{
-font-size:10px;
 min-width:20px;
 height:20px;
+font-size:10px;
 }
 
 .online,
@@ -569,4 +592,29 @@ width:10px;
 height:10px;
 }
 
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+.conversation-list::-webkit-scrollbar{
+width:6px;
+}
+
+.conversation-list::-webkit-scrollbar-track{
+background:transparent;
+}
+
+.conversation-list::-webkit-scrollbar-thumb{
+background:#c7c7c7;
+border-radius:10px;
+}
+
+body.dark .conversation-list::-webkit-scrollbar-thumb{
+background:#555;
+}
+
+.conversation-list{
+scroll-behavior:smooth;
 }

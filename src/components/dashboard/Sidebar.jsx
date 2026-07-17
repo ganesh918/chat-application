@@ -14,7 +14,7 @@ function Sidebar() {
 
       <h2 className="app-logo">
         <IoChatbubbleEllipses />
-        <span>Chat App</span>
+        <span>NexChat ✨💬</span>
       </h2>
 
       <ul>

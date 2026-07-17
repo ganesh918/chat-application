@@ -6,6 +6,7 @@ function ConversationList({
   selectedUser,
   setSelectedUser,
 }) {
+
   const filteredUsers = users.filter((user) =>
     user.name
       .toLowerCase()
@@ -13,17 +14,24 @@ function ConversationList({
   );
 
   return (
-    <>
+
+    <div className="conversation-list">
+
       {filteredUsers.map((user) => (
+
         <ConversationCard
           key={user.id}
           user={user}
           selectedUser={selectedUser}
           setSelectedUser={setSelectedUser}
         />
+
       ))}
-    </>
+
+    </div>
+
   );
+
 }
 
 export default ConversationList;
