@@ -16,13 +16,9 @@ import "../components/dashboard/Dashboard.css";
 import "../components/chat/Chat.css";
 
 function Dashboard() {
-
   const [search, setSearch] = useState("");
-
   const [selectedUser, setSelectedUser] = useState(null);
-
   const [chatData, setChatData] = useState(allMessages);
-
   const [showContactProfile, setShowContactProfile] = useState(false);
 
   const [isMobile, setIsMobile] = useState(
@@ -30,16 +26,19 @@ function Dashboard() {
   );
 
   useEffect(() => {
-
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
+
+      // Close profile when switching to desktop
+      if (window.innerWidth > 768) {
+        setShowContactProfile(false);
+      }
     };
 
     window.addEventListener("resize", handleResize);
 
     return () =>
       window.removeEventListener("resize", handleResize);
-
   }, []);
 
   const handleSelectUser = (user) => {
@@ -48,7 +47,6 @@ function Dashboard() {
   };
 
   const handleSendMessage = (message) => {
-
     setChatData((prev) => ({
       ...prev,
       [selectedUser.id]: [
@@ -56,17 +54,19 @@ function Dashboard() {
         message,
       ],
     }));
+  };
 
+  const goBackToChats = () => {
+    setSelectedUser(null);
+    setShowContactProfile(false);
   };
 
   return (
-
     <div className="dashboard-container">
 
       <Sidebar />
 
       {(!isMobile || !selectedUser) && (
-
         <div className="dashboard-content">
 
           {isMobile && (
@@ -87,21 +87,16 @@ function Dashboard() {
           />
 
         </div>
-
       )}
 
       {(!isMobile || selectedUser) && (
-
         <div className="chat-window">
 
           {!selectedUser ? (
 
             <div className="empty-chat">
-
               <h1>💬 Welcome</h1>
-
               <p>Select a contact to start chatting.</p>
-
             </div>
 
           ) : showContactProfile ? (
@@ -114,34 +109,27 @@ function Dashboard() {
           ) : (
 
             <>
-
               <ChatHeader
                 user={selectedUser}
-                openProfile={() =>
-                  setShowContactProfile(true)
-                }
+                openProfile={() => setShowContactProfile(true)}
+                goBack={goBackToChats}
               />
 
               <ChatMessages
-                messages={
-                  chatData[selectedUser.id] || []
-                }
+                messages={chatData[selectedUser.id] || []}
               />
 
               <ChatInput
                 onSend={handleSendMessage}
               />
-
             </>
 
           )}
 
         </div>
-
       )}
 
     </div>
-
   );
 }
 
