@@ -15,6 +15,13 @@ overflow:hidden;
 background:#f4f6f9;
 }
 
+.dashboard-main{
+flex:1;
+display:flex;
+min-width:0;
+min-height:0;
+overflow:hidden;
+}
 /* =========================================
    SIDEBAR
 ========================================= */
@@ -112,8 +119,9 @@ display:flex;
 flex-direction:column;
 border-right:1px solid #ddd;
 overflow:hidden;
+flex-shrink:0;
+min-height:0;
 }
-
 /* =========================================
    MOBILE HEADER
 ========================================= */
@@ -170,13 +178,14 @@ color:#999;
 ========================================= */
 
 .conversation-list{
-flex:1;
-overflow-y:auto;
-overflow-x:hidden;
-padding:0 18px 18px;
-scroll-behavior:smooth;
+    flex:1;
+    min-height:0;
+    overflow-y:auto;
+    overflow-x:hidden;
+    padding:0 18px 90px;
+    scroll-behavior:smooth;
+    -webkit-overflow-scrolling:touch;
 }
-
 .conversation-list::-webkit-scrollbar{
 width:6px;
 }
@@ -578,7 +587,6 @@ height:100dvh;
 overflow:hidden;
 background:#f4f6f9;
 }
-
 /* Bottom Navigation */
 
 .sidebar{
@@ -587,7 +595,7 @@ left:0;
 right:0;
 bottom:0;
 width:100%;
-height:60px;
+height:72px;
 padding:0;
 display:flex;
 justify-content:center;
@@ -603,16 +611,22 @@ display:none;
 
 .sidebar ul{
 width:100%;
-display:flex;
-justify-content:space-around;
+height:100%;
+display:grid;
+grid-template-columns:repeat(3,1fr);
 align-items:center;
+justify-items:center;
 margin:0;
 padding:0;
 list-style:none;
 }
 
 .sidebar li{
-flex:1;
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
 border-radius:0;
 }
 
@@ -625,11 +639,14 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
+width:100%;
+height:100%;
 gap:4px;
-padding:10px 0;
+padding:0;
 font-size:12px;
 font-weight:600;
 color:#fff;
+text-decoration:none;
 border-radius:0;
 }
 
@@ -646,12 +663,13 @@ font-size:22px;
 
 .dashboard-content{
 width:100%;
-height:calc(100dvh - 72px);
+flex:1;
 display:flex;
 flex-direction:column;
+min-height:0;
 overflow:hidden;
+padding-bottom:72px;
 }
-
 /* Mobile App Header */
 
 .mobile-app-title{

@@ -29,7 +29,6 @@ function Dashboard() {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
 
-      // Close profile when switching to desktop
       if (window.innerWidth > 768) {
         setShowContactProfile(false);
       }
@@ -47,6 +46,8 @@ function Dashboard() {
   };
 
   const handleSendMessage = (message) => {
+    if (!selectedUser) return;
+
     setChatData((prev) => ({
       ...prev,
       [selectedUser.id]: [
@@ -66,68 +67,78 @@ function Dashboard() {
 
       <Sidebar />
 
-      {(!isMobile || !selectedUser) && (
-        <div className="dashboard-content">
+      <main className="dashboard-main">
 
-          {isMobile && (
-            <div className="mobile-app-title">
-              NexChat ✨💬
-            </div>
-          )}
+        {(!isMobile || !selectedUser) && (
+          <div className="dashboard-content">
 
-          <SearchBar
-            search={search}
-            setSearch={setSearch}
-          />
+            {isMobile && (
+              <div className="mobile-app-title">
+                NexChat ✨💬
+              </div>
+            )}
 
-          <ConversationList
-            search={search}
-            selectedUser={selectedUser}
-            setSelectedUser={handleSelectUser}
-          />
-
-        </div>
-      )}
-
-      {(!isMobile || selectedUser) && (
-        <div className="chat-window">
-
-          {!selectedUser ? (
-
-            <div className="empty-chat">
-              <h1>💬 Welcome</h1>
-              <p>Select a contact to start chatting.</p>
-            </div>
-
-          ) : showContactProfile ? (
-
-            <ContactProfile
-              contact={selectedUser}
-              goBack={() => setShowContactProfile(false)}
+            <SearchBar
+              search={search}
+              setSearch={setSearch}
             />
 
-          ) : (
+            <ConversationList
+              search={search}
+              selectedUser={selectedUser}
+              setSelectedUser={handleSelectUser}
+            />
 
-            <>
-              <ChatHeader
-                user={selectedUser}
-                openProfile={() => setShowContactProfile(true)}
-                goBack={goBackToChats}
+          </div>
+        )}
+
+        {(!isMobile || selectedUser) && (
+          <div className="chat-window">
+
+            {!selectedUser ? (
+
+              <div className="empty-chat">
+                <h1>💬 Welcome</h1>
+                <p>Select a contact to start chatting.</p>
+              </div>
+
+            ) : showContactProfile ? (
+
+              <ContactProfile
+                contact={selectedUser}
+                goBack={() =>
+                  setShowContactProfile(false)
+                }
               />
 
-              <ChatMessages
-                messages={chatData[selectedUser.id] || []}
-              />
+            ) : (
 
-              <ChatInput
-                onSend={handleSendMessage}
-              />
-            </>
+              <>
+                <ChatHeader
+                  user={selectedUser}
+                  openProfile={() =>
+                    setShowContactProfile(true)
+                  }
+                  goBack={goBackToChats}
+                />
 
-          )}
+                <ChatMessages
+                  messages={
+                    chatData[selectedUser.id] || []
+                  }
+                />
 
-        </div>
-      )}
+                <ChatInput
+                  onSend={handleSendMessage}
+                />
+              </>
+
+            )}
+
+          </div>
+        )}
+
+      </main>
 
     </div>
   );
