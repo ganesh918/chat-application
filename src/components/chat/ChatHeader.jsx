@@ -8,6 +8,7 @@ import {
 function ChatHeader({
   user,
   openProfile,
+  goBack,
 }) {
 
   return (
@@ -18,7 +19,7 @@ function ChatHeader({
 
         <FaArrowLeft
           className="mobile-back"
-          onClick={() => window.location.reload()}
+          onClick={goBack}
         />
 
         <div
@@ -48,11 +49,17 @@ function ChatHeader({
 
       <div className="chat-actions">
 
-        <button><FaPhoneAlt /></button>
+        <button>
+          <FaPhoneAlt />
+        </button>
 
-        <button><FaVideo /></button>
+        <button>
+          <FaVideo />
+        </button>
 
-        <button><FaEllipsisV /></button>
+        <button>
+          <FaEllipsisV />
+        </button>
 
       </div>
 

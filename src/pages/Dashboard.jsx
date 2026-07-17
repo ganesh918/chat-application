@@ -69,6 +69,12 @@ function Dashboard() {
 
         <div className="dashboard-content">
 
+          {isMobile && (
+            <div className="mobile-app-title">
+              NexChat ✨💬
+            </div>
+          )}
+
           <SearchBar
             search={search}
             setSearch={setSearch}
