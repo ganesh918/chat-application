@@ -606,57 +606,42 @@ transition:all .3s ease;
 .sidebar{
     position:fixed;
     left:0;
-    right:0;
     bottom:0;
-    width:100%;
+    width:100vw;
     height:72px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#128C7E;
-    z-index:9999;
-    overflow:visible;
+    margin:0;
     padding:0;
 }
 .app-logo{
     display:none;
 }
-
 .sidebar ul{
+    display:flex;
     width:100%;
     height:100%;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    align-items:center;
-    justify-items:center;
-    list-style:none;
     margin:0;
     padding:0;
+    list-style:none;
 }
-
 .sidebar li{
-    width:100%;
+    flex:1;
     height:100%;
     display:flex;
-    justify-content:center;
-    align-items:center;
 }
-
 .sidebar li:hover{
     transform:none;
 }
 
 .sidebar-link{
-    width:100%;
-    height:100%;
+    flex:1;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     color:#fff;
     text-decoration:none;
+    border-radius:0;
 }
-
 .sidebar-link svg{
     display:block;
     font-size:24px;

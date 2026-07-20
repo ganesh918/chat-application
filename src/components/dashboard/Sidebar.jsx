@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   FaComments,
   FaUser,
@@ -11,35 +11,49 @@ import "./Dashboard.css";
 function Sidebar() {
   return (
     <div className="sidebar">
-
       <h2 className="app-logo">
         <IoChatbubbleEllipses />
         <span>NexChat ✨💬</span>
       </h2>
 
       <ul>
-  <li>
-    <Link to="/" className="sidebar-link active">
-      <FaComments />
-      <span>Chats</span>
-    </Link>
-  </li>
+        <li>
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) =>
+              `sidebar-link ${isActive ? "active" : ""}`
+            }
+          >
+            <FaComments />
+            <span>Chats</span>
+          </NavLink>
+        </li>
 
-  <li>
-    <Link to="/profile" className="sidebar-link">
-      <FaUser />
-      <span>Profile</span>
-    </Link>
-  </li>
+        <li>
+          <NavLink
+            to="/profile"
+            className={({ isActive }) =>
+              `sidebar-link ${isActive ? "active" : ""}`
+            }
+          >
+            <FaUser />
+            <span>Profile</span>
+          </NavLink>
+        </li>
 
-  <li>
-    <Link to="/settings" className="sidebar-link">
-      <FaCog />
-      <span>Settings</span>
-    </Link>
-  </li>
-</ul>
-
+        <li>
+          <NavLink
+            to="/settings"
+            className={({ isActive }) =>
+              `sidebar-link ${isActive ? "active" : ""}`
+            }
+          >
+            <FaCog />
+            <span>Settings</span>
+          </NavLink>
+        </li>
+      </ul>
     </div>
   );
 }
