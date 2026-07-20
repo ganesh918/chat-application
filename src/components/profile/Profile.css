@@ -620,3 +620,27 @@ body.dark .back-btn:hover{
 }
 
 }
+/* ===========================
+   Contact Profile - Mobile Only
+=========================== */
+
+@media (max-width:768px) {
+
+    .contact-profile-container{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 20px 16px;
+    }
+
+    .back-btn{
+        align-self: flex-start;
+        margin-bottom: 16px;
+    }
+
+    .contact-profile-card{
+        width: 100%;
+        max-width: 100%;
+    }
+
+}
