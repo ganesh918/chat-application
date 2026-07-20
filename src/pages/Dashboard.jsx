@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import MobileBottomNav from "../components/dashboard/MobileBottomNav";
 import Sidebar from "../components/dashboard/Sidebar";
 import SearchBar from "../components/dashboard/SearchBar";
 import ConversationList from "../components/dashboard/ConversationList";
@@ -169,7 +169,7 @@ function Dashboard() {
         )}
 
       </main>
-
+{isMobile && <MobileBottomNav />}
     </div>
   );
 }
