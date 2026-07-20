@@ -19,7 +19,7 @@ function Sidebar() {
       <ul>
         <li>
           <NavLink
-            to="/"
+            to="/dashboard"
             end
             className={({ isActive }) =>
               `sidebar-link ${isActive ? "active" : ""}`
