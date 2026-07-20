@@ -602,57 +602,66 @@ transition:all .3s ease;
 /* ===========================
    Bottom Navigation
 =========================== */
-
 .sidebar{
-    position:fixed;
-    left:0;
-    bottom:0;
-    width:100vw;
-    height:72px;
-    margin:0;
-    padding:0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background: #128C7E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    z-index: 9999;
 }
+
 .app-logo{
-    display:none;
+    display: none;
 }
+
 .sidebar ul{
-    display:flex;
-    width:100%;
-    height:100%;
-    margin:0;
-    padding:0;
-    list-style:none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
+
 .sidebar li{
-    flex:1;
-    height:100%;
-    display:flex;
-}
-.sidebar li:hover{
-    transform:none;
+    flex: 1;
+    display: flex;
 }
 
 .sidebar-link{
-    flex:1;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    color:#fff;
-    text-decoration:none;
-    border-radius:0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
 }
+
 .sidebar-link svg{
-    display:block;
-    font-size:24px;
-    color:#fff;
+    font-size: 22px;
+    margin-bottom: 4px;
 }
 
 .sidebar-link span{
-    display:block;
-    font-size:12px;
-    color:#fff;
-    margin-top:4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.sidebar-link.active{
+    background: #25D366;
+}
+
+.sidebar li:hover .sidebar-link{
+    background: #25D366;
 }
 /* ===========================
    Dashboard Content
@@ -664,7 +673,7 @@ transition:all .3s ease;
     display:flex;
     flex-direction:column;
     overflow:hidden;
-    padding-bottom:72px;
+    padding-bottom:100px;
 }
 /* ===========================
    Mobile Header
