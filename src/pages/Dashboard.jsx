@@ -65,77 +65,107 @@ function Dashboard() {
   return (
     <div className="dashboard-container">
 
-      <Sidebar />
+      {(!isMobile || !selectedUser) && <Sidebar />}
 
       <main className="dashboard-main">
 
-        {(!isMobile || !selectedUser) && (
-          <div className="dashboard-content">
+        {isMobile ? (
+          selectedUser ? (
+            <div className="chat-window">
 
-            {isMobile && (
+              {showContactProfile ? (
+                <ContactProfile
+                  contact={selectedUser}
+                  goBack={() => setShowContactProfile(false)}
+                />
+              ) : (
+                <>
+                  <ChatHeader
+                    user={selectedUser}
+                    openProfile={() => setShowContactProfile(true)}
+                    goBack={goBackToChats}
+                  />
+
+                  <ChatMessages
+                    messages={chatData[selectedUser.id] || []}
+                  />
+
+                  <ChatInput
+                    onSend={handleSendMessage}
+                  />
+                </>
+              )}
+
+            </div>
+          ) : (
+            <div className="dashboard-content">
+
               <div className="mobile-app-title">
                 NexChat ✨💬
               </div>
-            )}
 
-            <SearchBar
-              search={search}
-              setSearch={setSearch}
-            />
-
-            <ConversationList
-              search={search}
-              selectedUser={selectedUser}
-              setSelectedUser={handleSelectUser}
-            />
-
-          </div>
-        )}
-
-        {(!isMobile || selectedUser) && (
-          <div className="chat-window">
-
-            {!selectedUser ? (
-
-              <div className="empty-chat">
-                <h1>💬 Welcome</h1>
-                <p>Select a contact to start chatting.</p>
-              </div>
-
-            ) : showContactProfile ? (
-
-              <ContactProfile
-                contact={selectedUser}
-                goBack={() =>
-                  setShowContactProfile(false)
-                }
+              <SearchBar
+                search={search}
+                setSearch={setSearch}
               />
 
-            ) : (
+              <ConversationList
+                search={search}
+                selectedUser={selectedUser}
+                setSelectedUser={handleSelectUser}
+              />
 
-              <>
-                <ChatHeader
-                  user={selectedUser}
-                  openProfile={() =>
-                    setShowContactProfile(true)
-                  }
-                  goBack={goBackToChats}
+            </div>
+          )
+        ) : (
+          <>
+            <div className="dashboard-content">
+
+              <SearchBar
+                search={search}
+                setSearch={setSearch}
+              />
+
+              <ConversationList
+                search={search}
+                selectedUser={selectedUser}
+                setSelectedUser={handleSelectUser}
+              />
+
+            </div>
+
+            <div className="chat-window">
+
+              {!selectedUser ? (
+                <div className="empty-chat">
+                  <h1>💬 Welcome</h1>
+                  <p>Select a contact to start chatting.</p>
+                </div>
+              ) : showContactProfile ? (
+                <ContactProfile
+                  contact={selectedUser}
+                  goBack={() => setShowContactProfile(false)}
                 />
+              ) : (
+                <>
+                  <ChatHeader
+                    user={selectedUser}
+                    openProfile={() => setShowContactProfile(true)}
+                    goBack={goBackToChats}
+                  />
 
-                <ChatMessages
-                  messages={
-                    chatData[selectedUser.id] || []
-                  }
-                />
+                  <ChatMessages
+                    messages={chatData[selectedUser.id] || []}
+                  />
 
-                <ChatInput
-                  onSend={handleSendMessage}
-                />
-              </>
+                  <ChatInput
+                    onSend={handleSendMessage}
+                  />
+                </>
+              )}
 
-            )}
-
-          </div>
+            </div>
+          </>
         )}
 
       </main>
