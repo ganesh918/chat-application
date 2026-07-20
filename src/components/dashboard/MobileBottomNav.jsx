@@ -7,7 +7,7 @@ function MobileBottomNav() {
     <nav className="mobile-nav">
 
       <NavLink
-        to="/"
+        to="/dashboard"
         end
         className={({ isActive }) =>
           isActive ? "mobile-link active" : "mobile-link"
