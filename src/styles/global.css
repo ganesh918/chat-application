@@ -131,3 +131,20 @@ transition:.3s;
 .back-btn:hover{
 background:#128C7E;
 }
+html,
+body,
+#root {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+.dashboard-container,
+.dashboard-main,
+.dashboard-content,
+.chat-window {
+    width: 100% !important;
+    max-width: 100% !important;
+}
