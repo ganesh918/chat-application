@@ -4,7 +4,7 @@ import {
   FaUser,
   FaCog,
 } from "react-icons/fa";
-import { IoChatbubbleEllipses } from "react-icons/io5";
+
 
 import "./Dashboard.css";
 
@@ -12,7 +12,7 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <h2 className="app-logo">
-        <IoChatbubbleEllipses />
+  
         <span>NexChat ✨💬</span>
       </h2>
 

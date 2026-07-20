@@ -41,17 +41,38 @@ z-index:100;
 /* =========================================
    APP LOGO
 ========================================= */
-
 .app-logo{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:10px;
-margin-bottom:40px;
-font-size:26px;
-font-weight:700;
-color:white;
-letter-spacing:.5px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:40px;
+    font-size:26px;
+    font-weight:700;
+    color:#fff;
+    letter-spacing:.5px;
+    cursor:pointer;
+    transition:all .3s ease;
+}
+.app-logo:hover{
+    color:#25D366;
+    transform:scale(1.05);
+    text-shadow:0 0 12px rgba(37,211,102,.5);
+}
+.app-logo span{
+    display:inline-block;
+    transition:all .3s ease;
+}
+
+.app-logo:hover span{
+    transform:translateY(-2px);
+    letter-spacing:1.5px;
+    color:#25D366;
+    text-shadow:0 0 12px rgba(37,211,102,.45);
+}
+.app-logo:active span{
+    transform:scale(0.96);
+    color:#25D366;
 }
 
 .app-logo svg{
