@@ -1,14 +1,14 @@
 import { useEffect, useRef } from "react";
 
-function ChatMessages({ messages }) {
+function ChatMessages({ messages, isTyping }) {
   const bottomRef = useRef(null);
 
-  // Auto scroll to latest message
+  // Auto-scroll when new message or typing indicator appears
   useEffect(() => {
     bottomRef.current?.scrollIntoView({
       behavior: "smooth",
     });
-  }, [messages]);
+  }, [messages, isTyping]);
 
   return (
     <div className="chat-messages">
@@ -19,24 +19,41 @@ function ChatMessages({ messages }) {
           <p>Start the conversation 👋</p>
         </div>
       ) : (
-        messages.map((message) => (
-          <div
-            key={message.id}
-            className={`message ${
-              message.sender === "me"
-                ? "sent"
-                : "received"
-            }`}
-          >
-            <div className="message-text">
-              {message.text}
-            </div>
+        <>
+          {messages.map((message) => (
+            <div
+              key={message.id}
+              className={`message ${
+                message.sender === "me"
+                  ? "sent"
+                  : "received"
+              }`}
+            >
+              <div className="message-text">
+                {message.text}
+              </div>
 
-            <div className="message-time">
-              {message.time}
+              <div className="message-time">
+                {message.time}
+              </div>
             </div>
-          </div>
-        ))
+          ))}
+
+          {/* Typing Indicator */}
+          {isTyping && (
+            <div className="typing-container">
+              <div className="typing-bubble">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <div className="typing-text">
+                Typing...
+              </div>
+            </div>
+          )}
+        </>
       )}
 
       <div ref={bottomRef}></div>

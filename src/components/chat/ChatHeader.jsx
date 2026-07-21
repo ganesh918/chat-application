@@ -10,13 +10,9 @@ function ChatHeader({
   openProfile,
   goBack,
 }) {
-
   return (
-
     <div className="chat-header">
-
       <div className="chat-user">
-
         <FaArrowLeft
           className="mobile-back"
           onClick={goBack}
@@ -26,7 +22,6 @@ function ChatHeader({
           className="chat-user-info"
           onClick={openProfile}
         >
-
           <img
             src={user.avatar}
             alt={user.name}
@@ -34,21 +29,21 @@ function ChatHeader({
           />
 
           <div>
-
             <h3>{user.name}</h3>
 
-            <small>
-              {user.online ? "Online" : "Offline"}
+            <small className="typing-status">
+              Typing
+              <span className="typing-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
             </small>
-
           </div>
-
         </div>
-
       </div>
 
       <div className="chat-actions">
-
         <button>
           <FaPhoneAlt />
         </button>
@@ -60,13 +55,9 @@ function ChatHeader({
         <button>
           <FaEllipsisV />
         </button>
-
       </div>
-
     </div>
-
   );
-
 }
 
 export default ChatHeader;

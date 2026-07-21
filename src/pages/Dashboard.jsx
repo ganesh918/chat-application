@@ -64,15 +64,12 @@ function Dashboard() {
 
   return (
     <div className="dashboard-container">
-
       {(!isMobile || !selectedUser) && <Sidebar />}
 
       <main className="dashboard-main">
-
         {isMobile ? (
           selectedUser ? (
             <div className="chat-window">
-
               {showContactProfile ? (
                 <ContactProfile
                   contact={selectedUser}
@@ -82,7 +79,9 @@ function Dashboard() {
                 <>
                   <ChatHeader
                     user={selectedUser}
-                    openProfile={() => setShowContactProfile(true)}
+                    openProfile={() =>
+                      setShowContactProfile(true)
+                    }
                     goBack={goBackToChats}
                   />
 
@@ -95,11 +94,9 @@ function Dashboard() {
                   />
                 </>
               )}
-
             </div>
           ) : (
             <div className="dashboard-content">
-
               <div className="mobile-app-title">
                 NexChat ✨💬
               </div>
@@ -114,13 +111,11 @@ function Dashboard() {
                 selectedUser={selectedUser}
                 setSelectedUser={handleSelectUser}
               />
-
             </div>
           )
         ) : (
           <>
             <div className="dashboard-content">
-
               <SearchBar
                 search={search}
                 setSearch={setSearch}
@@ -131,11 +126,9 @@ function Dashboard() {
                 selectedUser={selectedUser}
                 setSelectedUser={handleSelectUser}
               />
-
             </div>
 
             <div className="chat-window">
-
               {!selectedUser ? (
                 <div className="empty-chat">
                   <h1>💬 Welcome</h1>
@@ -150,7 +143,9 @@ function Dashboard() {
                 <>
                   <ChatHeader
                     user={selectedUser}
-                    openProfile={() => setShowContactProfile(true)}
+                    openProfile={() =>
+                      setShowContactProfile(true)
+                    }
                     goBack={goBackToChats}
                   />
 
@@ -163,13 +158,12 @@ function Dashboard() {
                   />
                 </>
               )}
-
             </div>
           </>
         )}
-
       </main>
-{isMobile && <MobileBottomNav />}
+
+      {isMobile && <MobileBottomNav />}
     </div>
   );
 }
