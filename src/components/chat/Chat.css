@@ -68,8 +68,8 @@
 .chat-user small{
     display:block;
     margin-top:2px;
-    color:#777;
     font-size:13px;
+    color:#777;
 }
 
 .mobile-back{
@@ -225,9 +225,7 @@
     box-shadow:0 2px 6px rgba(0,0,0,.08);
 }
 
-/* =========================================
-   TYPING INDICATOR
-========================================= */
+
 
 /* =========================================
    TYPING INDICATOR
